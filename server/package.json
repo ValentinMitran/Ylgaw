@@ -1,0 +1,33 @@
+{
+  "name": "ylgaw-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ylgaw",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ValentinMitran/Ylgaw.git"
+  },
+  "author": "Valentin Mitran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ValentinMitran/Ylgaw/issues"
+  },
+  "homepage": "https://github.com/ValentinMitran/Ylgaw#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
