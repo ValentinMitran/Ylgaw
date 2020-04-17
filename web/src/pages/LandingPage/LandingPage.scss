@@ -1,0 +1,60 @@
+.hero {
+  background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(0, 0, 0, 0.9)),
+    repeating-linear-gradient(
+      0,
+      transparent,
+      transparent 2px,
+      black 3px,
+      black 3px
+    ),
+    url("https://www.100hdwallpapers.com/wallpapers/3000x1875/alone_moon_silhouette-other.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+.header {
+  height: 56px;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #1d2024;
+}
+.sticky-nav {
+  position: sticky;
+  top: 0;
+}
+.container {
+  height: 56px;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+  img {
+    height: 40px;
+  }
+  nav {
+    height: 56px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 15px;
+    a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 10px;
+      &:hover {
+        color: blueviolet;
+      }
+    }
+  }
+}
+.modules {
+  background-color: #353b43;
+  height: 100vh;
+}
+.about {
+  background-color: #292f36;
+  height: 100vh;
+}
