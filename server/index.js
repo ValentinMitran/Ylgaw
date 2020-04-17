@@ -5,12 +5,19 @@ const mongoose = require("mongoose");
 dotenv.config();
 
 //Import Routes
-const authRoute = require("./routes/auth");
+const userRoute = require("./routes/auth");
+
+//Connect to DB
+mongoose.connect(
+  process.env.DB_CONNECT,
+  { useUnifiedTopology: true, useNewUrlParser: true },
+  () => console.log("DB up n running")
+);
 
 //Middleware
 app.use(express.json());
 
 //Route Middlewares
-app.use("/api/user", authRoute);
+app.use("/api/user", userRoute);
 
-app.listen(3005, () => console.log("Express running"));
+app.listen(process.env.PORT || 3001, () => console.log("Express running"));

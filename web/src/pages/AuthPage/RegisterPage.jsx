@@ -1,14 +1,43 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
+import { toast } from "react-toastify";
 import "./AuthPage.scss";
 
-const RegisterPage = () => {
+const RegisterPage = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = (e) => {
+  useEffect(() => {
+    if (localStorage.authToken) {
+      history.push("/");
+    }
+  }, [history]);
+
+  const handleRegister = async (e) => {
     e.preventDefault();
+
+    let response = await fetch("/api/user/register", {
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    }).catch((err) => {
+      alert(err);
+    });
+    response = await response.text();
+    if (response === "Success") {
+      toast.success("Registration Successful");
+      history.push("/login");
+    } else {
+      toast.error(response);
+      setUsername("");
+      setPassword("");
+    }
   };
 
   return (
@@ -50,4 +79,4 @@ const RegisterPage = () => {
     </>
   );
 };
-export default RegisterPage;
+export default withRouter(RegisterPage);

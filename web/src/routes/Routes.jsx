@@ -5,6 +5,10 @@ import RegisterPage from "../pages/AuthPage/RegisterPage";
 import AppPage from "./../pages/AppPage/AppPage";
 import PrivateRoute from "./PrivateRoute";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
+
 const Routes = () => {
   return (
     <>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import LandingPage from "./../pages/LandingPage/LandingPage";
 
-const PrivateRoute = ({ children, ...rest }) => {
+function PrivateRoute({ children, ...rest }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -15,9 +15,9 @@ const PrivateRoute = ({ children, ...rest }) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        authToken: localStorage.authToken,
-      },
-    }).catch((err) => {
+        "authToken": localStorage.authToken
+      }
+    }).catch(err => {
       alert(err);
     });
     response = await response.text();
@@ -37,6 +37,6 @@ const PrivateRoute = ({ children, ...rest }) => {
   return (
     <Route {...rest} render={() => (isLoggedIn ? children : <LandingPage />)} />
   );
-};
+}
 
 export default PrivateRoute;

@@ -1,14 +1,43 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
+import { toast } from "react-toastify";
 import "./AuthPage.scss";
 
-const LoginPage = () => {
+const LoginPage = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  useEffect(() => {
+    if (localStorage.authToken) {
+      history.push("/");
+    }
+  }, [history]);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
+
+    let response = await fetch("/api/user/login", {
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    }).catch((err) => {
+      alert(err);
+    });
+    if (response.headers.get("authToken")) {
+      localStorage.authToken = response.headers.get("authToken");
+      toast.success("Logged in succesfully");
+      history.push("/");
+    } else {
+      toast.error("Username/Password combination doesn't exist.");
+      setUsername("");
+      setPassword("");
+    }
   };
 
   return (
@@ -51,4 +80,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default withRouter(LoginPage);
