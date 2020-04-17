@@ -1,15 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import LoginPage from "../pages/AuthPage/LoginPage";
 import RegisterPage from "../pages/AuthPage/RegisterPage";
 import AppPage from "./../pages/AppPage/AppPage";
 import PrivateRoute from "./PrivateRoute";
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-toast.configure()
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
-const Routes = () => {
+const Routes = ({ history }) => {
   return (
     <>
       <Router>
@@ -19,6 +24,12 @@ const Routes = () => {
           </Route>
           <Route path="/register">
             <RegisterPage />
+          </Route>
+          <Route path="/logout">
+            {() => {
+              localStorage.clear();
+              return <Redirect to="/" />;
+            }}
           </Route>
           <PrivateRoute path="/*">
             <AppPage />
