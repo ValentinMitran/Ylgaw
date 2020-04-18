@@ -30,6 +30,7 @@
     }
     svg {
       font-size: 23px;
+      cursor: pointer;
     }
     img {
       height: 40px;
@@ -44,6 +45,7 @@
   position: absolute;
   top: 0;
   transition: width 0.2s linear 0.1s;
+  z-index: 1;
   * {
     box-sizing: border-box;
   }
@@ -72,13 +74,17 @@
   }
 }
 .ghost-wrap {
-  width: calc(100% - 260px);
+  width: 100vw;
   height: 100vh;
   background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;
   cursor: pointer;
+  z-index: 0;
+  background-color: rgb(33, 33, 33);
+
+  opacity: 0.9;
 }
 
 .sidebar-shrinked {
