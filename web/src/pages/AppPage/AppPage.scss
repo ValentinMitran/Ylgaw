@@ -9,6 +9,15 @@
   background-color: rgb(32, 32, 32);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  #menuToggler {
+    color: white;
+    font-size: 35px;
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+  }
   .user-area {
     height: 100%;
     position: absolute;
@@ -28,8 +37,79 @@
     }
   }
 }
-.sidebar {
-  width: 300px;
+.sidebar-full {
+  width: 260px;
+  height: 100vh;
+  background-color: rgb(33, 33, 33);
+  position: absolute;
+  top: 0;
+  transition: width 0.2s linear 0.1s;
+  * {
+    box-sizing: border-box;
+  }
+  img {
+    width: 150px;
+    margin: auto;
+    display: block;
+    padding: 10px 0 40px;
+  }
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    &:hover {
+      background-color: rgb(56, 56, 56);
+    }
+    svg {
+      font-size: 30px;
+      color: #737f8a;
+    }
+    span {
+      padding: 0 15px;
+      color: #bcc0c4;
+    }
+  }
+}
+.ghost-wrap {
+  width: calc(100% - 260px);
+  height: 100vh;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.sidebar-shrinked {
+  width: 100px;
   height: calc(100vh - 56px);
   background-color: rgb(33, 33, 33);
+
+  * {
+    box-sizing: border-box;
+  }
+  img {
+    display: none;
+  }
+  a {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #737f8a;
+    padding: 15px 0 10px;
+    outline: none;
+    &:hover {
+      background-color: rgb(56, 56, 56);
+    }
+    svg {
+      font-size: 30px;
+    }
+    span {
+      padding: 10px 0;
+    }
+  }
 }
