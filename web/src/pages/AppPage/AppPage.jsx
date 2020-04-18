@@ -16,7 +16,7 @@ const AppPage = () => {
     <>
       <div className="app">
         <div className="topbar">
-          <MdMenu id="menuToggler" onClick={() => setIsSideOpen(!isSideOpen)} />
+          <MdMenu id="menuToggler" onClick={() => setIsSideOpen(true)} />
           <div className="user-area">
             <div className="balance">&#36;16</div>
             <MdNotifications />
