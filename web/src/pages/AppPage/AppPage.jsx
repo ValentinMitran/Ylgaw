@@ -1,13 +1,4 @@
 import React, { useState } from "react";
-import {
-  MdNotifications,
-  MdMenu,
-  MdHome,
-  MdPeople,
-  MdStore,
-  MdApps,
-  MdChat,
-} from "react-icons/md";
 import { Switch, Route } from "react-router-dom";
 import "./AppPage.scss";
 import Topbar from "../../components/Bars/Topbar/Topbar";

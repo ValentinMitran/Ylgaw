@@ -11,19 +11,19 @@ const Sidebar = ({ isSideOpen, setIsSideOpen }) => {
           src="https://powerssquared.com/wp-content/uploads/2017/01/Reaper_500.png"
           alt="Logo"
         />
-        <Link to="/">
+        <Link to="/" onClick={() => setIsSideOpen(false)}>
           <MdHome />
           <span>Dashboard</span>
         </Link>
-        <Link to="/social">
+        <Link to="/social" onClick={() => setIsSideOpen(false)}>
           <MdPeople />
           <span>Social</span>
         </Link>
-        <Link to="/store">
+        <Link to="/store" onClick={() => setIsSideOpen(false)}>
           <MdStore />
           <span>Store</span>
         </Link>
-        <Link>
+        <Link onClick={() => setIsSideOpen(false)}>
           <MdApps />
           <span>Apps</span>
         </Link>
