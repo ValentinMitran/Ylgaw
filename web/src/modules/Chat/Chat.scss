@@ -6,6 +6,8 @@
   top: 0;
   right: 0;
   z-index: 1;
+  overflow-x: none;
+  overflow-y: auto;
   header {
     height: 56px;
     background-color: rgb(32, 32, 32);
@@ -26,6 +28,28 @@
       &:hover {
         background-color: rgb(87, 87, 87);
       }
+    }
+  }
+  .user {
+    width: 100%;
+    background-color: rgb(70, 70, 70);
+    position: relative;
+    display: flex;
+    align-items: center;
+    img {
+      width: 40px;
+      border-radius: 100%;
+      padding: 10px 10px 10px;
+    }
+    span {
+      text-transform: capitalize;
+      padding: 0 10px 0;
+      font-weight: 600;
+    }
+    svg {
+      font-size: 25px;
+      position: absolute;
+      right: 10px;
     }
   }
 }
