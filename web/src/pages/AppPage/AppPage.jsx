@@ -22,8 +22,8 @@ const AppPage = () => {
     <>
       <div className="app">
         <Topbar setIsSideOpen={setIsSideOpen} setIsChatOpen={setIsChatOpen} />
-
         <Sidebar isSideOpen={isSideOpen} setIsSideOpen={setIsSideOpen} />
+        <Chat isChatOpen={isChatOpen} setIsChatOpen={setIsChatOpen} />
 
         <div className="main">
           <Switch>
@@ -37,8 +37,6 @@ const AppPage = () => {
             </Route>
           </Switch>
         </div>
-
-        <Chat isChatOpen={isChatOpen} setIsChatOpen={setIsChatOpen} />
       </div>
     </>
   );
