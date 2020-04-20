@@ -1,35 +1,15 @@
 import React from "react";
 import "./Chat.scss";
-import { MdSearch, MdMessage } from "react-icons/md";
+import UserList from "./ui/UserList";
+import { useState } from "react";
+import OpenChat from "./ui/OpenChat";
 
 const Chat = ({ isChatOpen, setIsChatOpen }) => {
+  const [selectedConvo,setSelectedConvo] = useState(false);
+
   return (
     <>
-      {isChatOpen ? (
-        <div className="chat">
-          <header>
-            <span> Chat</span>
-            <MdSearch />
-          </header>
-          <div className="user">
-            <img
-              src="https://vuely.theironnetwork.org/static/avatars/user-28.jpg"
-              alt="2"
-            />
-            <span>mrx</span>
-            <MdMessage />
-          </div>
-          <div className="user">
-            <img
-              src="https://vuely.theironnetwork.org/static/avatars/user-35.jpg"
-              alt="1"
-            />
-            <span>Valentin</span>
-            <MdMessage />
-          </div>
-        </div>
-      ) : null}
-
+      {isChatOpen ? selectedConvo ? <OpenChat username={selectedConvo} setSelectedConvo={setSelectedConvo}/> : <UserList setSelectedConvo={setSelectedConvo}/> : null}
       {isChatOpen ? (
         <div className="ghost-wrap" onClick={() => setIsChatOpen(false)}></div>
       ) : null}

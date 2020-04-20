@@ -1,0 +1,73 @@
+.open-chat {
+  height: 100vh;
+  width: 300px;
+  background-color: rgb(33, 33, 33);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  overflow-x: none;
+  overflow-y: auto;
+  header {
+    height: 56px;
+    background-color: rgb(32, 32, 32);
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 15px;
+
+    img {
+      border-radius: 100%;
+      height: 50px;
+      width: auto;
+      position: absolute;
+      left: 50px;
+    }
+    span {
+      width: 100%;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    #back {
+      left: 0;
+    }
+    svg {
+      font-size: 25px;
+      position: absolute;
+      right: 15px;
+      cursor: pointer;
+      border-radius: 100%;
+      padding: 10px;
+      &:hover {
+        background-color: rgb(87, 87, 87);
+      }
+    }
+  }
+  .messages {
+    height: calc(100% - 56px - 70px);
+    display: flex;
+    flex-direction: column;
+    .message {
+      width: 200px;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 5px;
+      background-color: rebeccapurple;
+      align-self: flex-start;
+    }
+    #self {
+      align-self: flex-end;
+    }
+  }
+  form {
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    textarea {
+      width: 220px;
+    }
+    * {
+      color: white;
+    }
+  }
+}
