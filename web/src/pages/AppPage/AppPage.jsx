@@ -5,6 +5,7 @@ import Topbar from "../../components/Bars/Topbar/Topbar";
 import Sidebar from "../../components/Bars/Sidebar/Sidebar";
 import Profile from "../../components/Profile/Profile";
 import Chat from "../../modules/Chat/Chat";
+import TimeMachine from "./../../modules/TimeMachine/TimeMachine";
 
 const AppPage = () => {
   const [isSideOpen, setIsSideOpen] = useState(false);
@@ -25,6 +26,9 @@ const AppPage = () => {
             <Route path="/store">Store</Route>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/timemachine">
+              <TimeMachine />
             </Route>
           </Switch>
         </div>
