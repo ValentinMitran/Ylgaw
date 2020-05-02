@@ -1,22 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.scss";
 
 const LandingPage = () => {
-  useEffect(() => {
-    const header = document.getElementById("myHeader");
-    const scrollCallBack = window.addEventListener("scroll", () => {
-      if (window.pageYOffset > header.offsetTop) {
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
-      }
-    });
-    return () => {
-      window.removeEventListener("scroll", scrollCallBack);
-    };
-  }, []);
-
   return (
     <>
       <div className="hero">
@@ -30,7 +16,7 @@ const LandingPage = () => {
           <button>Explore Us</button>
         </div>
       </div>
-      <header id="myHeader" className="header sticky-nav">
+      <header className="header sticky-nav">
         <div className="nav-container">
           <img
             src="https://powerssquared.com/wp-content/uploads/2017/01/Reaper_500.png"
