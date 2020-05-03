@@ -1,5 +1,5 @@
 .sidebar-shrinked {
-  width: 100px;
+  width: 72px;
   height: calc(100vh - 56px);
   background-color: rgb(33, 33, 33);
   z-index: 2;
@@ -21,7 +21,7 @@
     justify-content: center;
     text-decoration: none;
     color: #737f8a;
-    padding: 15px 0 10px;
+    padding: 10px 0 5px;
     outline: none;
     &:hover {
       background-color: rgb(56, 56, 56);
@@ -30,7 +30,21 @@
       font-size: 30px;
     }
     span {
-      padding: 10px 0;
+      padding: 5px 0;
+      font-size: 12px;
+    }
+  }
+  position: relative;
+  .apps-list {
+    position: absolute;
+    top: 210px;
+    left: 72px;
+    background-color: rgb(33, 33, 33);
+    a {
+      width: 130px;
+      &:hover {
+        background-color: rgb(56, 56, 56);
+      }
     }
   }
 }
@@ -67,6 +81,17 @@
     span {
       padding: 0 15px;
       color: #bcc0c4;
+    }
+  }
+  .apps-list {
+    a {
+      width: 100%;
+      color: #bcc0c4;
+      text-align: center;
+      display: inline-block;
+      &:hover {
+        background-color: rgb(56, 56, 56);
+      }
     }
   }
 }
