@@ -9,6 +9,7 @@ import LoginPage from "../pages/AuthPage/LoginPage";
 import RegisterPage from "../pages/AuthPage/RegisterPage";
 import AppPage from "./../pages/AppPage/AppPage";
 import PrivateRoute from "./PrivateRoute";
+import { BalanceProvider } from "../utils/BalanceContext";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,7 +33,9 @@ const Routes = ({ history }) => {
             }}
           </Route>
           <PrivateRoute path="/*">
-            <AppPage />
+            <BalanceProvider>
+              <AppPage />
+            </BalanceProvider>
           </PrivateRoute>
         </Switch>
       </Router>

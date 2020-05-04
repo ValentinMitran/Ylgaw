@@ -1,14 +1,17 @@
-import React from "react";
-import { MdNotifications, MdMenu,MdChat } from "react-icons/md";
+import React, { useContext } from "react";
+import { MdNotifications, MdMenu, MdChat } from "react-icons/md";
 import "./Topbar.scss";
+import { BalanceContext } from "../../../utils/BalanceContext";
 
-const Topbar = ({ setIsSideOpen,setIsChatOpen }) => {
+const Topbar = ({ setIsSideOpen, setIsChatOpen }) => {
+  const [balance, setBalance] = useContext(BalanceContext);
+
   return (
     <>
       <div className="topbar">
         <MdMenu id="menuToggler" onClick={() => setIsSideOpen(true)} />
         <div className="user-area">
-          <div className="balance">&#36;16</div>
+          <div className="balance">&#36;{balance}</div>
           <MdNotifications />
           <MdChat onClick={() => setIsChatOpen(true)} />
           <img
