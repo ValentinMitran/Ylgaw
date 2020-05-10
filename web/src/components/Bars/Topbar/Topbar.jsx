@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { MdNotifications, MdMenu, MdChat } from "react-icons/md";
 import "./Topbar.scss";
 import { BalanceContext } from "../../../utils/BalanceContext";
+import { Link } from "react-router-dom";
 
 const Topbar = ({ setIsSideOpen, setIsChatOpen }) => {
-  const [balance, setBalance] = useContext(BalanceContext);
+  const [balance] = useContext(BalanceContext);
 
   return (
     <>
@@ -14,10 +15,12 @@ const Topbar = ({ setIsSideOpen, setIsChatOpen }) => {
           <div className="balance">&#36;{balance}</div>
           <MdNotifications />
           <MdChat onClick={() => setIsChatOpen(true)} />
-          <img
-            src="https://avatars2.githubusercontent.com/u/40249132?s=460&u=67b6f37dabe04c908c42671e961f3e50076e2d63&v=4"
-            alt="Profile"
-          />
+          <Link to="/profile">
+            <img
+              src="https://avatars2.githubusercontent.com/u/40249132?s=460&u=67b6f37dabe04c908c42671e961f3e50076e2d63&v=4"
+              alt="Profile"
+            />
+          </Link>
         </div>
       </div>
     </>

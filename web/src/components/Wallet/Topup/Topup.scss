@@ -1,0 +1,46 @@
+.topup {
+  width: 1160px;
+  margin: auto;
+  display: flex;
+  box-sizing: border-box;
+  .amount-cards {
+    display: flex;
+    flex-direction: row;
+  }
+  .topup-amount-card {
+    width: 860px;
+    padding: 20px 40px 20px;
+    background-color: #212121;
+    h1 {
+      text-align: center;
+    }
+    .amount-card {
+      width: 175px;
+      height: 100px;
+      background-color: #181818;
+      margin: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 40px;
+      box-sizing: border-box;
+      cursor: pointer;
+      span {
+        font-size: 30px;
+      }
+      input {
+        font-size: 30px;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: transparent;
+        color: white;
+        border: none;
+        -moz-appearance: textfield;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 979px) {
+      width: calc(100vw - 72px - 120px);
+    }
+  }
+}

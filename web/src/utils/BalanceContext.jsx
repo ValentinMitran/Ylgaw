@@ -2,7 +2,7 @@ import React, { useState, createContext, useEffect } from "react";
 
 export const BalanceContext = createContext();
 
-export const BalanceProvider = props => {
+export const BalanceProvider = (props) => {
   const [balance, setBalance] = useState(0);
 
   async function getBalance() {
@@ -10,9 +10,9 @@ export const BalanceProvider = props => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "authToken": localStorage.authToken
-      }
-    }).catch(err => {
+        authToken: localStorage.authToken,
+      },
+    }).catch((err) => {
       alert(err);
     });
     response = await response.json();

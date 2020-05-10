@@ -1,7 +1,11 @@
-import React, { useMemo, useState, useEffect, useContext } from "react";
+import React, { useMemo, useState, useContext } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { BalanceContext } from "../../utils/BalanceContext";
 import useResponsiveFontSize from "./utils/useResponsiveFontSize";
+import { toast } from "react-toastify";
+import { withRouter } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import { MdPayment } from "react-icons/md";
 const jwt = require("jsonwebtoken");
 
 const useOptions = () => {
@@ -34,14 +38,11 @@ const CardForm = (props) => {
   const elements = useElements();
   const options = useOptions();
 
-  const [decodedjwt, setDecodedjwt] = useState(
-    jwt.decode(localStorage.authToken)
-  );
+  const [decodedjwt] = useState(jwt.decode(localStorage.authToken));
   const [balance, setBalance] = useContext(BalanceContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (!stripe || !elements) {
       return;
     }
@@ -61,7 +62,7 @@ const CardForm = (props) => {
         amount: props.amount,
       }),
     }).catch((err) => {
-      alert(err);
+      toast.error(err);
     });
     response = await response.json();
     stripe
@@ -75,11 +76,13 @@ const CardForm = (props) => {
       })
       .then(async function (result) {
         if (result.error) {
-          alert(result.error.message);
+          toast.error(result.error.message);
         }
-        alert(result.paymentIntent.status);
+        if (result.paymentIntent == undefined) {
+          return;
+        }
         if (result.paymentIntent.status === "succeeded") {
-          console.log("PAYED");
+          toast.success("Transaction successful");
 
           await fetch("/api/wallet/topup/success", {
             method: "POST",
@@ -91,17 +94,18 @@ const CardForm = (props) => {
               amount: props.amount,
             }),
           }).catch((err) => {
-            alert(err);
+            toast.error(err);
           });
 
           setBalance(Number(balance) + Number(props.amount));
+          props.history.push("/");
         }
       });
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
         <label>
           Card details
           <CardElement
@@ -120,11 +124,18 @@ const CardForm = (props) => {
             }}
           />
         </label>
-        <button type="submit" disabled={!stripe}>
+        <Button
+          variant="outlined"
+          size="large"
+          color="primary"
+          type="submit"
+          disabled={!stripe}
+          style={{ margin: "50px auto 0", display: "block" }}
+        >
           Top Up {props.amount}&euro;
-        </button>
+        </Button>
       </form>
     </>
   );
 };
-export default CardForm;
+export default withRouter(CardForm);
