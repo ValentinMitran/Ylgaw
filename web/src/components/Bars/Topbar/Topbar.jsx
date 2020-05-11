@@ -12,7 +12,7 @@ const Topbar = ({ setIsSideOpen, setIsChatOpen }) => {
       <div className="topbar">
         <MdMenu id="menuToggler" onClick={() => setIsSideOpen(true)} />
         <div className="user-area">
-          <div className="balance">&#36;{balance}</div>
+          <div className="balance">{balance} &euro;</div>
           <MdNotifications />
           <MdChat onClick={() => setIsChatOpen(true)} />
           <Link to="/profile">

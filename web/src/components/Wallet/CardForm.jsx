@@ -5,7 +5,6 @@ import useResponsiveFontSize from "./utils/useResponsiveFontSize";
 import { toast } from "react-toastify";
 import { withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { MdPayment } from "react-icons/md";
 const jwt = require("jsonwebtoken");
 
 const useOptions = () => {
@@ -78,7 +77,7 @@ const CardForm = (props) => {
         if (result.error) {
           toast.error(result.error.message);
         }
-        if (result.paymentIntent == undefined) {
+        if (result.paymentIntent === undefined) {
           return;
         }
         if (result.paymentIntent.status === "succeeded") {
