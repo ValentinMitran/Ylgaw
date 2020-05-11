@@ -1,0 +1,66 @@
+.topup {
+  width: 860px;
+  margin: auto;
+  display: flex;
+  box-sizing: border-box;
+
+  .amount-cards {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    @media (max-width: 767px) {
+      flex-flow: wrap;
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+  }
+  .topup-amount-card {
+    width: 860px;
+    padding: 20px 40px 20px;
+    background-color: #212121;
+
+    @media (max-width: 767px) {
+      width: calc(100vw - 120px);
+    }
+    h1 {
+      text-align: center;
+    }
+
+    .amount-card {
+      width: 175px;
+      height: 100px;
+      background-color: #181818;
+      margin: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 40px;
+      box-sizing: border-box;
+      cursor: pointer;
+      @media (max-width: 767px) {
+        width: 33vw;
+      }
+      @media (max-width: 480px) {
+        width: calc(50% - 10px);
+        margin: 5px;
+      }
+      span {
+        font-size: 30px;
+      }
+      input {
+        font-size: 30px;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: transparent;
+        color: white;
+        border: none;
+        -moz-appearance: textfield;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 979px) {
+      width: calc(100vw - 72px - 120px);
+    }
+  }
+}
