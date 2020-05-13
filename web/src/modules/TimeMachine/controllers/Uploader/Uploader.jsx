@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import ActionContext from "../../ActionContext";
 import { toast } from "react-toastify";
 import "./Uploader.scss";
+import Button from "@material-ui/core/Button";
 
 function Uploader(props) {
   const [action, setAction] = useContext(ActionContext);
@@ -33,9 +34,25 @@ function Uploader(props) {
 
   return (
     <div id="uploader">
-      <form>
-        <input type="file" name="daily" id="" onChange={handleImageUpload} />
-      </form>
+      <input
+        accept="image/*"
+        id="contained-button-file"
+        multiple
+        type="file"
+        name="daily"
+        onChange={handleImageUpload}
+        style={{ display: "none" }}
+      />
+      <label htmlFor="contained-button-file">
+        <Button
+          variant="outlined"
+          color="primary"
+          component="span"
+          style={{ display: "flex" }}
+        >
+          Upload
+        </Button>
+      </label>
     </div>
   );
 }

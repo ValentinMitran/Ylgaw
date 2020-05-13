@@ -5,6 +5,8 @@ import "./TimeMachine.scss";
 import ActionContext from "./ActionContext";
 import Notes from "./Notes";
 import { useCallback } from "react";
+import DatePicker from "./DatePicker";
+import Fab from "@material-ui/core/Fab";
 const jwt = require("jsonwebtoken");
 
 function TimeMachine() {
@@ -124,23 +126,28 @@ function TimeMachine() {
           }
         />
         <div className="dateController">
-          <button
+          <Fab
             onClick={() => {
               previousDay();
             }}
+            size="small"
+            color="primary"
+            aria-label="add"
           >
             &lt;
-          </button>
-          <span>
-            {date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}{" "}
-          </span>
-          <button
+          </Fab>
+          <DatePicker date={date} setDate={setDate} />
+
+          <Fab
             onClick={() => {
               nextDay();
             }}
+            size="small"
+            color="primary"
+            aria-label="add"
           >
             &gt;
-          </button>
+          </Fab>
         </div>
       </div>
     </>

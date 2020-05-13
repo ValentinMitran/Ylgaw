@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { toast } from "react-toastify";
 import "./Remover.scss";
-
+import Button from "@material-ui/core/Button";
 import ActionContext from "../../ActionContext";
 
 function Remover(props) {
@@ -31,7 +31,9 @@ function Remover(props) {
   return (
     <>
       <div className="remover">
-        <button onClick={() => removeImg()}>Remover</button>
+        <Button variant="outlined" color="primary" onClick={() => removeImg()}>
+          Remove
+        </Button>
       </div>
     </>
   );
