@@ -1,36 +1,102 @@
-
 .topbar {
-    width: 100vw;
-    height: 56px;
-    background-color: rgb(32, 32, 32);
-    position: relative;
-    overflow: hidden;
+  width: 100vw;
+  height: 56px;
+  background-color: rgb(32, 32, 32);
+  position: relative;
+  display: flex;
+  align-items: center;
+  #menuToggler {
+    color: white;
+    font-size: 35px;
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+  }
+  .user-area {
+    height: 100%;
+    position: absolute;
+    right: 0;
     display: flex;
     align-items: center;
-    #menuToggler {
-      color: white;
-      font-size: 35px;
-      position: absolute;
-      left: 15px;
+    color: white;
+
+    svg {
+      font-size: 23px;
       cursor: pointer;
-    }
-    .user-area {
+      padding: 0 10px;
       height: 100%;
-      position: absolute;
-      right: 0;
-      display: flex;
-      align-items: center;
-      color: white;
-      * {
-        padding: 0 10px;
+      &:hover {
+        background-color: rgb(70, 70, 70);
       }
-      svg {
-        font-size: 23px;
-        cursor: pointer;
-      }
-      img {
-        height: 40px;
-        border-radius: 100%;
-      }
+    }
+    img {
+      padding: 0 10px;
+      height: 40px;
+      border-radius: 100%;
     }
   }
+}
+.balance {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  &:hover {
+    background-color: rgb(70, 70, 70);
+  }
+}
+.balance-menu {
+  position: absolute;
+  margin-top: 140px;
+  margin-left: -10px;
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+
+  a {
+    text-decoration: none;
+    color: #737f8a;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    svg {
+      font-size: 20px !important;
+    }
+    &:hover {
+      background-color: rgb(70, 70, 70);
+    }
+  }
+}
+.profile {
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: rgb(70, 70, 70);
+  }
+}
+.profile-menu {
+  position: absolute;
+  z-index: 2;
+  background-color: #202020;
+  margin-top: 180px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+    color: #737f8a;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+
+    &:hover {
+      background-color: rgb(70, 70, 70);
+    }
+  }
+}

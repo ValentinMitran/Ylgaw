@@ -84,10 +84,15 @@
     }
   }
   .apps-list {
+    position: absolute;
+    margin-top: 170px;
+    width: 100%;
     a {
       width: 100%;
       color: #bcc0c4;
       text-align: center;
+      padding: 10px 0;
+      margin-left: -25px;
       display: inline-block;
       &:hover {
         background-color: rgb(56, 56, 56);
