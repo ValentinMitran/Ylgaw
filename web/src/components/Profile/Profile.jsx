@@ -1,8 +1,22 @@
 import React from "react";
-import {MdHistory,MdHome} from 'react-icons/md';
+import { MdHistory, MdHome } from "react-icons/md";
 import "./Profile.scss";
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import Feed from "./Feed/Feed";
+import History from "./History/History";
 
 const Profile = () => {
+  let { url } = useRouteMatch();
+
+  const handleClick = (event) => {
+    var x = document.getElementsByClassName("active-path");
+    console.log(x[0]);
+    if (x.length !== 0) {
+      x[0].classList.remove("active-path");
+    }
+    event.currentTarget.classList.add("active-path");
+  };
+
   return (
     <>
       <div className="profile-header">
@@ -20,10 +34,27 @@ const Profile = () => {
           <h4>Valentin Mitran</h4>
           <span>Rookie</span>
           <nav>
-          <a href="#feed"><MdHome/>Feed</a>
-          <a href="#friends"><MdHistory/>History</a>
+            <Link to="/profile" onClick={handleClick} className="active-path">
+              <MdHome />
+              Feed
+            </Link>
+            <Link to="/profile/history" onClick={handleClick}>
+              <MdHistory />
+              History
+            </Link>
           </nav>
         </div>
+      </div>
+
+      <div className="profile-main">
+        <Switch>
+          <Route path={`${url}/history`}>
+            <History />
+          </Route>
+          <Route path={`${url}/`}>
+            <Feed />
+          </Route>
+        </Switch>
       </div>
     </>
   );

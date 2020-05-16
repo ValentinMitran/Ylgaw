@@ -49,7 +49,7 @@ const Sidebar = ({ isSideOpen, setIsSideOpen }) => {
             setApps(false);
           }}
         >
-          <a
+          <button
             onClick={() => {
               setApps((prev) => !prev);
             }}
@@ -87,7 +87,7 @@ const Sidebar = ({ isSideOpen, setIsSideOpen }) => {
                 </div>
               </>
             ) : null}
-          </a>
+          </button>
         </ClickAwayListener>
       </div>
 

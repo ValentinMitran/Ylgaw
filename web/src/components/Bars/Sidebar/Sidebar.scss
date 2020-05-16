@@ -13,7 +13,8 @@
   img {
     display: none;
   }
-  a {
+  a,
+  button {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -34,6 +35,15 @@
       font-size: 12px;
     }
   }
+  button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    &::-moz-focus-inner {
+      border: 0;
+    }
+  }
+
   position: relative;
   .apps-list {
     position: absolute;
@@ -66,7 +76,8 @@
     display: block;
     padding: 10px 0 40px;
   }
-  a {
+  a,
+  button {
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -83,16 +94,26 @@
       color: #bcc0c4;
     }
   }
+  button {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    &::-moz-focus-inner {
+      border: 0;
+    }
+  }
+
   .apps-list {
     position: absolute;
-    margin-top: 170px;
+    margin-top: 165px;
     width: 100%;
     a {
       width: 100%;
       color: #bcc0c4;
       text-align: center;
       padding: 10px 0;
-      margin-left: -25px;
+      margin-left: -50px;
       display: inline-block;
       &:hover {
         background-color: rgb(56, 56, 56);
