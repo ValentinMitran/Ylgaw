@@ -7,6 +7,7 @@ import Profile from "../../components/Profile/Profile";
 import Chat from "../../modules/Chat/Chat";
 import TimeMachine from "./../../modules/TimeMachine/TimeMachine";
 import Wallet from "./../../components/Wallet/Wallet";
+import Settings from "../../components/Settings/Settings";
 
 const AppPage = () => {
   const [isSideOpen, setIsSideOpen] = useState(false);
@@ -20,9 +21,6 @@ const AppPage = () => {
 
         <div className="main">
           <Switch>
-            <Route exact path="/">
-              Dashboard
-            </Route>
             <Route path="/social">Social</Route>
             <Route path="/store">Store</Route>
             <Route path="/profile">
@@ -34,6 +32,10 @@ const AppPage = () => {
             <Route path="/timemachine">
               <TimeMachine />
             </Route>
+            <Route path="/settings">
+              <Settings />
+            </Route>
+            <Route path="/">Dashboard</Route>
           </Switch>
         </div>
       </div>
